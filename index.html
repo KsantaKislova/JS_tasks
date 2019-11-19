@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Точка и окружность</title>
+    <script> 
+
+    function checkk(){
+let x = parseInt(document.getElementById('x').value);//при условии что это 0
+let y = parseInt(document.getElementById('y').value);//при условии что это 0 
+let r = parseInt(document.getElementById('r').value);
+
+let x1 = parseInt(document.getElementById('x1').value);
+let y1 = parseInt(document.getElementById('y1').value);
+
+let r_xy = (x - x1) * (x - x1) + (y - y1) * (y - y1);
+
+if(r_xy < r*r) {
+    alert("Точка принадлежит окружности");
+}
+else if (r_xy == r*r){
+    alert("Точка лежит на окружности");
+}
+else alert("Точка не принадлежит окружности");
+    }
+    </script>
+</head>
+
+<body>
+    <form>
+        <p>Центр окружности по X:</p><input id="x" type="text" value=" ">
+        <p>Центр окружности по Y:</p><input id="y" type="text" value=" ">
+        <p>Значение радиуса окружности</p><input id="r" type="text" value=" "><br>
+
+        <p>Значение X -координаты</p><input id="x1" type="text" value=" ">
+        <p>Значение Y -координаты</p><input id="y1" type="text" value=" ">
+        
+        <p></p><input type="button" value="Принадлежат ли точки окружности?" onclick="checkk();"><br>
+    </form>
+<div id=""></div>
+<div id=""></div>
+</body>
+</html>
