@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function foo(){ 
+        let x = parseInt(document.getElementById('x').value);
+         y = (x*x - 7*x + 10) / (x*x - 8*x + 12);
+        if (isNaN(y)==true) y=0;
+        document.getElementById('y').innerHTML = y;
+    }
+    </script>
+      
+    </head>
+        
+    <body>
+        <form>
+            <p>Дано уравнение: X^2 - 7X + 10 / X^2 - 8X + 12, введите значение X: </p><input id="x" type="text" value=" ">
+            <p></p><input type = "button", value = "Получить значение выражения", onclick="foo();"><br>
+        </form>
+    <div id="y"></div>
+    </body>
+</html>
