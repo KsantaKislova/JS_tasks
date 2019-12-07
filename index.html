@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function count_() {
+    let str = document.getElementById("in").value;
+    str = str.split(' ');
+    let s = '';
+    for (let i = 0; i < str.length; i++) {
+        for (let j = 0; j < str[i].length; j++)
+        {
+            if (str[i][j] == 'а') {
+                s += 'о';
+                break;
+            }
+            s += str[i][j];
+        }
+    }
+    document.getElementById("out").innerHTML = s;
+}
+    </script>
+    <form>
+        <p>Введите последовательность слов. </p>
+        <p>Каждая встречающаяся в слове буква "а" заменится на "о" с удалением последующих букв из слова. </p>
+    </form>
+<input type="text" id="in">
+<button onclick="count_()">Go</button><br>
+<div id="out"> </div>
+
+</body>
+</html>
+
+
+
+
+
+<script type="text/javascript" src="8_ts.js"></script>
