@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Площадь треугольника</title>
+</head>
+<body>
+    Выберите способ рассчета площади:
+    <p>1: По длинам трех сторон</p>
+    <p>2: По трем углам и стороне</p>
+    <p>3: По двум сторонам и углу между ними</p>
+    <p>4: По двум сторонам и необразованному ими углу</p>
+    <p>5: По высоте треугольника и стороне к которой опущена эта высота</p>
+    <p>6: По трем углам и стороне</p>
+    <input type="number" id="id" size = "1">
+    <button onclick="triangleSquare()">Ок</button><br>
+    <div id="forText"></div>
+    <script>
+
+function triangleSquare() {
+    let id = parseInt(document.getElementById("id").value);
+    let s;
+    switch (id) {
+        case 1:
+            s = method1();
+            break;
+        case 2:
+            s = method2();
+            break;
+        case 3:
+            s = method3();
+            break;
+        case 4:
+            s = method4();
+            break;
+        case 5:
+            s = method5();
+            break;
+        case 6:
+            s = method6();
+            break;
+        default:
+            document.getElementById("forText").innerHTML = "Такого варианта нет!";
+    }
+
+
+    function method1() {
+        let a = parseInt(prompt("Введите сторону a:"));
+        let b = parseInt(prompt("Введите сторону b:"));
+        let c = parseInt(prompt("Введите сторону c:"));
+        if (a + b < c || a + c < b || b + c < a) alert("Такой треугольник не существует");
+        let p = (a + b + c) / 2;
+        return Math.sqrt((p * (p - a) * (p - b) * (p - c)));
+    }
+
+    function method2() {
+        let a = parseInt(prompt("Введите сторону a:"));
+        let a1 = parseInt(prompt("Введите угл альфа:"));
+        let a2 = parseInt(prompt("Введите угл бета:"));
+        let a3 = parseInt(prompt("Введите угл гамма:"));
+        if (a1 < -1 || a1 > 1 || a2 < -1 || a2 > 1 || a3 < -1 || a3 > 1) alert("Такой треугольник не существует");
+        let p = 0.5 * Math.pow(a, 2) * (a2 * a3 / a1);
+        return p;
+    }
+
+    function method3() {
+        let a = parseInt(prompt("Введите сторону a:"));
+        let b = parseInt(prompt("Введите сторону b:"));
+        let a1 = parseInt(prompt("Введите угл альфа:"));
+        return (a * b * Math.sin(a1)) / 2;
+    }
+
+    function method4() {
+        alert("Треугольник должен быть прямоугольным");
+        let a = parseInt(prompt("Введите сторону a:"));
+        let b = parseInt(prompt("Введите сторону b:"));
+        return (a * b) / 2;
+    }
+
+    function method5() {
+        let h = parseInt(prompt("Введите высоту:"));
+        let c = parseInt(prompt("Введите основание:"));
+        return (h * c) / 2;
+    }
+
+    function method6() {
+        let a = parseInt(prompt("Введите сторону a:"));
+        let a1 = parseInt(prompt("Введите угл альфа:"));
+        let a2 = parseInt(prompt("Введите угл бета:"));
+        let a3 = parseInt(prompt("Введите угл гамма:"));
+        return 0.5 * Math.pow(a1, 2) * (Math.sin(a1) * Math.sin(a3) / Math.sin(a2));
+    }
+     
+
+    if (s>=0) document.getElementById("forText").innerHTML = "Площадь треугольника равна: " + s;
+    else alert("Введенные параметры не действительны для построения треугольника");
+    
+
+    
+}
+
+    </script>
+</body>
+</html>
+
+
+
