@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    Введите строку:<br>
+    <input type="text" id="in" size="20"><br>
+    <button onclick="palindrom()">Результат</button><br>
+    <div id="res"></div>
+    <script>
+        function palindrom() {
+        let str = document.getElementById("in").value;
+        let nextstr = str.split('').reverse().join('');
+        if (nextstr === str){
+            document.getElementById('res').innerHTML = "Строка - палиндром";
+        } else {
+            document.getElementById('res').innerHTML = "Строка не палиндром";
+        }
+    }
+    </script>
+</body>
+</html>
